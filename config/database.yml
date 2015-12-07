@@ -83,3 +83,4 @@ production:
   database: nyctaxi_production
   username: nyctaxi
   password: <%= ENV['NYCTAXI_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
