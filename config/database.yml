@@ -1,16 +1,18 @@
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: tcb_database_dev
-  pool: 25
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: tcb_database_test
-  pool: 25
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: tcb_database_dev
+#   pool: 25
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: tcb_database_test
+#   pool: 25
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: tcb_database
+#   pool: 25
+#   username: tcb
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: tcb_database
-  pool: 25
-  username: tcb
+  url: <%= ENV["DATABASE_URL"] %>
