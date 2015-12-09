@@ -2,7 +2,7 @@
 
 Built as week-long group project at Flatiron School with Michael Sterling and Jim Rectenwald
 
-* A Rails/open-data application to compare the cost of a NYC cab ride versus Uber and Lyft
+* A Rails application to compare the cost of a NYC cab ride versus Uber and Lyft
 
 https://wheels-project.herokuapp.com/
 
