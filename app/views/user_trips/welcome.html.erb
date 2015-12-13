@@ -1,10 +1,8 @@
 <div class='welcome_background'>
- 
+
+<div class='container'>
 <div class='row'>
   <div class='col-md-4 content'>
-    <% if current_user %>
-      <h4 class='user_name'><%= "Welcome, #{current_user.name}" %></h4>
-    <% end %>
   </div>
   <div class='col-md-4'>
     <br>
@@ -16,16 +14,16 @@
       <%= text_field_tag(:address1)%><br><br> 
       <%= label_tag("Dropoff Address")%>
       <%= text_field_tag(:address2)%><br><br>
-      <%= label_tag("Favorite Trips")%><br><br>
-      <% if @favorite_trips %>
-        <%= select_tag(:trip, options_for_select(@favorite_trips), prompt: "Or pick a trip you've made before")%><br><br>
+      <% if @favorite_trips != nil && @favorite_trips.size > 0  %>
+        <%= label_tag("Favorite Trips")%><br><br>
+        <%= select_tag(:trip, options_for_select(@favorite_trips), prompt: "Choose Previous Trip")%><br><br>
       <% end %>
       <%= submit_tag("Search") %>
     <% end %>
     <% flash.each do |key, value| %>
-        <div class="alert alert-dismissible alert-danger">
+        <div class="alert alert-danger" role="alert">
           <button type="button" class="close" data-dismiss="alert">X</button>
-          <strong><%= value %></strong>
+          <%= value %>
         </div>
       <% end %>
   </div>
