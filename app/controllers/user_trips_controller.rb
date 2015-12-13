@@ -1,5 +1,4 @@
 class UserTripsController < ApplicationController
-    before_action :set_trip, only: [:create]
 
   def new
     if session[:user_id]
@@ -11,9 +10,15 @@ class UserTripsController < ApplicationController
   end
 
   def create
-    total_results = cab_results(@trip)
-    total_results.map {|trip| HistoricalTrip.create(trip)} #create historical trips
-    redirect_to @trip
+    if form_invalid?
+      flash[:alert] = 'Invalid Entry'
+      redirect_to root_path
+    else
+      set_trip
+      total_results = cab_results(@trip)
+      total_results.map {|trip| HistoricalTrip.create(trip)} #create historical trips
+      redirect_to @trip
+    end
   end
 
   def destroy
@@ -40,6 +45,10 @@ class UserTripsController < ApplicationController
   end
 
   private
+
+  def form_invalid?
+    params[:address1].empty? || params[:address2].empty?
+  end
 
   def set_trip
     params[:trip] != "" &&  params[:trip] ? @trip = UserTrip.find(params[:trip]) : @trip = UserTrip.new

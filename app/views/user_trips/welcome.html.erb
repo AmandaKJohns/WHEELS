@@ -9,8 +9,7 @@
   <div class='col-md-4'>
     <br>
   </div>
-  <div class='col-md-4'>
-  
+  <div class='col-md-4'>  
     <h2>Welcome to Wheels</h2>
     <%= form_tag(user_trips_path, method: :post) do %>
       <%= label_tag("Starting Address")%>
@@ -23,6 +22,12 @@
       <% end %>
       <%= submit_tag("Search") %>
     <% end %>
+    <% flash.each do |key, value| %>
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">X</button>
+          <strong><%= value %></strong>
+        </div>
+      <% end %>
   </div>
 </div> 
 </div>
