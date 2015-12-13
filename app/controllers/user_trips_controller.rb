@@ -10,7 +10,7 @@ class UserTripsController < ApplicationController
   end
 
   def create
-    if form_invalid?
+    if form_invalid? && params[:trip].size == 0
       flash[:alert] = 'Invalid Entry'
       redirect_to root_path
     else
