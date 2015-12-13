@@ -16,8 +16,13 @@ class UserTripsController < ApplicationController
     else
       set_trip
       total_results = cab_results(@trip)
-      total_results.map {|trip| HistoricalTrip.create(trip)} #create historical trips
-      redirect_to @trip
+      if !total_results
+        flash[:alert] = "Sorry, there are no records for that trip."
+        redirect_to root_path
+      else
+        total_results.map {|trip| HistoricalTrip.create(trip)} #create historical trips
+        redirect_to @trip
+      end
     end
   end
 
@@ -35,7 +40,6 @@ class UserTripsController < ApplicationController
   end
 
   def taxi_data
-    # needs testing
     render 'taxi_data'
   end
 
@@ -67,8 +71,7 @@ class UserTripsController < ApplicationController
     if total_results.count > 0
       return total_results
     else
-      @message = "Sorry, there are no records for that trip."
-      render 'welcome'
+      nil
     end
   end
 
