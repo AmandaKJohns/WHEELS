@@ -138,7 +138,7 @@ function calculateAndDisplayRoute(directionsDisplay, directionsService,
   for (var i = 0; i < markerArray.length; i++) {
     markerArray[i].setMap(null);
   }
-
+<% binding.pry %>
   directionsService.route({
     origin: {lat: <%= @trip.origin.latitude %>, lng: <%=@trip.origin.longitude %>},  
     destination: {lat: <%=@trip.destination.latitude %> , lng: <%=@trip.destination.longitude %>},

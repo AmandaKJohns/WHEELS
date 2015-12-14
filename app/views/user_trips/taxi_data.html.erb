@@ -1,7 +1,10 @@
 <div class="trip_show"><br>
   <div class="chart">
     <center><h1>Average Cab Fare per Hour</h1></center>
-
-    <%= column_chart [{name: "Avg Price Per Hour", data: HistoricalTrip.group_by_hour_of_day(:tpep_pickup_datetime).average(:total_amount)}], backgroundColor: "transparent" %>
+    
+   <!--  This uses Groupate Gem and Chartkick Gem -->
+    <%= column_chart [{name: "Avg Price Per Hour", 
+                      data: HistoricalTrip.group_by_hour_of_day(:tpep_pickup_datetime).average(:total_amount)}],
+                      backgroundColor: "transparent" %>
   </div>
 </div>
