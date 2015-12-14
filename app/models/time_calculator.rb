@@ -1,9 +1,6 @@
-require 'json'
-require 'rest-client'
 require 'time'
 require 'date'
 require 'time_diff'
-require 'pry'
 
 class TimeCalculator
 

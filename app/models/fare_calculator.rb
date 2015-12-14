@@ -1,10 +1,3 @@
-require 'json'
-require 'rest-client'
-require 'time'
-require 'date'
-require 'time_diff'
-require 'pry'
-
 class FareCalculator
   def calculate_fare(user_trips)
    

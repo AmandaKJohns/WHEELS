@@ -1,11 +1,5 @@
-require 'pry'
 class Lyft 
   attr_accessor :cost, :time
-
-  # def initialize(trip)
-  #   @trip = trip
-  #   self.build_lyft
-  # end
 
   def build_lyft(trip)
     directions = GoogleDirections.new(trip.origin.address, trip.destination.address)
@@ -19,7 +13,6 @@ class Lyft
     self
   end
 end
-
 
 # Base Charge $3.00
 # Cancel Penalty  $10.00
